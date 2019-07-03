@@ -1,10 +1,11 @@
 class ServerLog
 
-  attr_reader :server_list
+  attr_reader :server_list, :ordered_list
 
   def initialize(display = Display.new)
     @server_list = {}
     @display = display
+    @ordered_list = []
   end
 
   def create_hash(filename)
@@ -18,10 +19,14 @@ class ServerLog
   end
 
   def page_views
-    @display.page_views(@server_list)
+    @display.page_views(@ordered_list)
   end
 
   def unique_views
-    @display.unique_views(@server_list)
+    @display.unique_views(@ordered_list)
+  end
+
+  def order
+    @ordered_list = @server_list.sort_by { |k, v| v.join.length}.reverse
   end
 end
