@@ -14,10 +14,18 @@ describe ServerLog do
   end
 
   describe '#page_views' do
-    it 'passes has through page_views method in display class' do
+    it 'passes hash through page_views method in display class' do
       server = ServerLog.new(display)
       expect(display).to receive(:page_views).with(server.server_list)
       server.page_views
+    end
+  end
+
+  describe '#unique_views' do
+    it 'passes hash through unique_views method in display class' do
+      server = ServerLog.new(display)
+      expect(display).to receive(:unique_views).with(server.server_list)
+      server.unique_views
     end
   end
 end

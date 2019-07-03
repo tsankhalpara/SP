@@ -20,4 +20,8 @@ class ServerLog
   def page_views
     @display.page_views(@server_list)
   end
+
+  def unique_views
+    @display.unique_views(@server_list)
+  end
 end
