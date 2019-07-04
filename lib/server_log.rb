@@ -1,5 +1,4 @@
 class ServerLog
-
   attr_reader :server_list, :ordered_list
 
   def initialize(display = Display.new)
@@ -11,7 +10,7 @@ class ServerLog
   def create_hash(filename)
     File.open(filename).each do |webserver_site|
       site = webserver_site.split(' ')
-      if @server_list.has_key?(site[0])
+      if @server_list.key?(site[0])
         @server_list[site[0]] << (site[1])
       else @server_list[site[0]] = [site[1]]
       end
@@ -27,6 +26,6 @@ class ServerLog
   end
 
   def order
-    @ordered_list = @server_list.sort_by { |k, v| v.join.length}.reverse
+    @ordered_list = @server_list.sort_by { |_, v| v.join.length }.reverse
   end
 end

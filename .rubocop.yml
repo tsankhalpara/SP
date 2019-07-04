@@ -1,0 +1,27 @@
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - 'lib/display.rb'
+    - 'spec/display_spec.rb'
+    - 'lib/server_log.rb'
+    - 'spec/server_log_spec.rb'
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/Documentation:
+  Exclude:
+    - 'lib/server_log.rb'
+    - 'lib/display.rb'
+
+Metrics/LineLength:
+  Exclude:
+    - 'spec/display_spec.rb'
+    - 'spec/server_log_spec.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/server_log_spec.rb'
